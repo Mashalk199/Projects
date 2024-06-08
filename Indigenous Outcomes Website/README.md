@@ -1,5 +1,5 @@
 ## Running the Main web server
-You can run the main webserver program similar to the project workshop activities
+You can run the main webserver program by doing this:
 1. Open this project within VSCode
 2. Allow VSCode to read the pom.xml file
  - Allow the popups to run and "say yes" to VSCode configuring the build
