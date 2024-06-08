@@ -1,3 +1,14 @@
+## Running the Main web server
+You can run the main webserver program similar to the project workshop activities
+1. Open this project within VSCode
+2. Allow VSCode to read the pom.xml file
+ - Allow the popups to run and "say yes" to VSCode configuring the build
+ - Allow VSCode to download the required Java libraries
+3. To Build & Run
+ - Open the ``src/main/java/app/App.java`` source file, and select "Run" from the pop-up above the main function
+4. Go to: http://localhost:7000
+
+
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6049355&assignment_repo_type=AssignmentRepo)
 # Studio Project Starter Code (Semester 2, 2021)
 Starter code for the Studio Project. This is a simple layout connected to a GitHub Classroom that serves as the basis for implementing the studio project. 
@@ -65,15 +76,7 @@ There are two places code can be run from
 1. The **main** web server program
 2. the **optional** helper program to use JDBC to load your SQLite database from the CSVs using Java
 
-## Running the Main web server
-You can run the main webserver program similar to the project workshop activities
-1. Open this project within VSCode
-2. Allow VSCode to read the pom.xml file
- - Allow the popups to run and "say yes" to VSCode configuring the build
- - Allow VSCode to download the required Java libraries
-3. To Build & Run
- - Open the ``src/main/java/app/App.java`` source file, and select "Run" from the pop-up above the main function
-4. Go to: http://localhost:7000
+
 
 ## Running the Helper Program
 The helper program in ``src/main/java/helper/ProcessCSV.java`` can be run separetly from the main webserver. This gives a demonstration of how you can use Java to read the provided CSV files and store the information in an SQLite database. This example transforms the data in the ``database/lga_indigenous_status_by_age_by_sex_census_2016.csv`` file to match the format of the ``PopulationStatistics`` entity as given in the example ER Model for Milestone 1 for the Cloing-the-Gap social challenge. That is, the code converts the columns of the CSV into rows that can be loaded into the SQLite database using ``INSERT`` statements.
