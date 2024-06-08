@@ -18,7 +18,7 @@ scenarios.
 
 3. **SuperPrice** | Java, React, RESTful API, Docker, Spring Boot | Aug 2023 – Oct 2023
 
-In order to run the website, please extract Superprice.zip file and read the README.md file
+In order to run the website, please extract Superprice.zip file and read the README.md file.
 
 • Developed a shopping full-stack web application in Java, SpringBoot, React, Docker and TypeScript. Utilizing a
 REST API with React as the frontend and a H2 backend.
