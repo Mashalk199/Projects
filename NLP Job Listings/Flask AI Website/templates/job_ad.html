@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        h1 {
+            display:flex;
+            justify-content: center;
+        }
+        .job {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            text-align: center;
+            list-style: none;
+
+            /* width:100%; */
+            gap:50px;
+
+            /* width:200px; */
+
+            
+        }
+    </style>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block highlight %}
+    <div class="navbar-container">
+    <li><a href='/'>Home</a></li>
+    <li><a href='{{ url_for("listings") }}'>Job Listings</a></li>
+    <li><a href='/post_job.html'>Post a job ad</a></li>
+    </div>
+    {% endblock %}
+
+    {% block body %}
+    <br><h1>Title: {{ title }}</h1>
+    <div class="job">
+        <!-- <h3>Title:</h3><h5>{{ title }}</h5> -->
+        <h3>Company:</h3><p>{{ company }}</p>
+        <h3>Category:</h3><p>{{ category }}</p>
+
+        <h3>Web-Index:</h3><p>{{ wid }}</p>
+    </div>
+        <h3 style="flex-direction: column;justify-content: center;text-align: center;">Description:<br></h3><p>{{ description }}</p>
+    
+    {% endblock %}
+</body>
