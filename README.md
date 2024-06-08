@@ -7,3 +7,11 @@ instances of data, NLTK to tokenize and perform stemming and lemmatization proce
 
 • Utilized FastText for training word-embedding models, created my own word-embedding model to test against and
 used the best models to power a small-scale AI job listings application for classifying job descriptions.
+
+2. **Indigenous People’s Outcomes website** | SQL, Javalin, JDBC, HTML, CSS, Git Sept 2021 – Oct 2021
+
+• Created an RDBMS from Australian census data with a script and queried using JDBC to display data on
+frontend.
+
+• Performed comprehensive usability-testing for website features, user requirements analysis and user testing with
+scenarios.
