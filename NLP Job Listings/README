@@ -1,4 +1,5 @@
 - Download fasttext model from Meta's website and place in directory \models\desc_FT.model
+- Extract data zip file
 - To run Flask AI website, cd into directory of website in terminal: 
 For Windows: 
 set FLASK_APP=hello
