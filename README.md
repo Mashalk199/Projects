@@ -15,3 +15,13 @@ frontend.
 
 • Performed comprehensive usability-testing for website features, user requirements analysis and user testing with
 scenarios.
+
+**SuperPrice** | Java, React, RESTful API, Docker, Spring Boot Aug 2023 – Oct 2023
+
+• Developed a shopping full-stack web application in Java, SpringBoot, React, Docker and TypeScript. Utilizing a
+REST API with React as the frontend and a H2 backend.
+
+• Group effort of 5 people, implementing a Scrum methodology where I served as the Product Owner, setting and
+managing tasks on GitHub project scrum boards.
+
+• Performed comprehensive tests on HTML and rest API results following a test-driven-development framework.
