@@ -38,9 +38,8 @@ managing tasks on GitHub project scrum boards.
 
 5. **Vending Machine** | C++, Makefile, Regex Apr 2023 – May 2023
 
-• Created a C++ program called Penelope’s Pastry Delights which acts as a vending machine. Treats can be
-added, deleted, edited, purchases can be made and change is given based on the particular balance of coins
-contained in the vending machine.
+• Created a C++ program called Penelope’s Pastry Delights which acts as a vending machine. Purchases can be made and change is given based on the particular balance of coins
+contained in the vending machine. Treats can be added, deleted, edited, etc.
 
 • Utilized principles of structured programming, so no break statements and no methods with multiple return
 statements. All memory is managed with correct practices and handled by appropriate object users.
