@@ -2,7 +2,7 @@ Guide for my portfolio and personal projects:
 
 1. **Personal Project: MAL Recommender System using KNNWithMeans and SVD** | numpy, pandas | Nov 2024 - Now
 
-Github link: https://github.com/Mashalk199/MALRecommenderSystem
+Github repo: https://github.com/Mashalk199/MALRecommenderSystem
 
 • Created a KNN with means implementation of a recommender system with raw numpy and pandas, without using any external libraries to create the user-item rating matrix. 
 
