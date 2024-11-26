@@ -3,7 +3,9 @@ Guide for my portfolio and personal projects:
 1. Personal Project: **MAL Recommender System using KNNWithMeans and SVD** | numpy, pandas | Nov 2024 - Now
 
 • Created a KNNWithMeans implementation of a recommender system with raw numpy and pandas, without using any external libraries to create the user-item rating matrix. 
+
 • Created a pipeline to analyse the user anime list of a myanimelist.net account user, and generate recommendations for the user.
+
 • Working on implementing the SVD algorithm to the dataset to improve recommendation performance.
 
 2. **Natural Language Processing with job listings** | Gensim, NLTK, Regex | Sept 2022 – Oct 2022
