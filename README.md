@@ -4,7 +4,7 @@ Guide for my portfolio and personal projects:
 
 Github repo: https://github.com/Mashalk199/MALRecommenderSystem
 
-• Created a KNN with means implementation of a recommender system with raw numpy and pandas, without using any external ML libraries. Working on implementing SVD algorithm using just NumPy and pandas.
+• Created a KNN with means implementation of a recommender system with raw numpy and pandas, without using any external ML libraries.
 
 • Created a pipeline to analyse the user anime list of a myanimelist.net account user, and generate recommendations for the user.
 
