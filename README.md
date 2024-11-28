@@ -49,10 +49,15 @@ managing tasks on GitHub project scrum boards.
 
 • Performed comprehensive tests on HTML and rest API results following a test-driven-development framework.
 
-6. **Vending Machine** | C++, Makefile, Regex Apr 2023 – May 2023
+6. **Vending Machine** | C++, Makefile, Regex | Apr 2023 – May 2023
 
 • Created a C++ program called Penelope’s Pastry Delights which acts as a vending machine. Purchases can be made and change is given based on the particular balance of coins
 contained in the vending machine. Treats can be added, deleted, edited, etc.
 
 • Utilized principles of structured programming, so no break statements and no methods with multiple return
 statements. All memory is managed with correct practices and handled by appropriate object users.
+
+7. **AWS hosted music website** | Flask, AWS EC2, S3, API Gateway, Lambda, DynamoDB | Mar 2023 – Apr 2023
+
+• Set up multiple Amazon web services and utilized serverless lambda functions to query data from database from
+an API endpoint trigger in the website.
