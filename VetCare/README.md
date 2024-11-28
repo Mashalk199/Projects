@@ -1,7 +1,9 @@
 NOTE: The code here only reflects the parts I completed, not the finished product. My contributions were the appointment booking and view booking functionality, I am currently working on bringing the final codebase to completion before exhibiting it in this portfolio.
-See [Instructions](INSTRUCTIONS.md)
+
 
 ## VScode springboot quick run
+Run the WebappApplication.java file, then go to localhost:8080
+
 To allow running and restarting of the application with a single keypress:
 
 With the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack) installed,
