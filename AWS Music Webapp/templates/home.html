@@ -1,0 +1,54 @@
+{% extends "layout.html"%}
+{% block body %}
+
+<h1>Welcome {{user_name}}.</h1>
+<h2 style="display:flex;justify-content: center;"> Subscriptions: </h2>
+<div class="subscription-table">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Year</th>
+            <th>Cover Image</th>
+            <th>Remove</th>
+        </tr>
+        {{subscriptions}}
+    </table>
+</div>
+<h2 style="display:flex; justify-content: center; margin-top:50px;"> Queries: </h2>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <ul class="flashes" style="display:flex; justify-content: center;">
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+<div class="queries">
+    <div class="filters">
+        <form action="/makeQuery" method="POST">
+            <label>Title:</label>
+            <input type="text" name="title" id="title" placeholder="Title">
+            <label>Year:</label>
+            <input type="text" name="year" id="year" placeholder="Year">
+            <label>Artist:</label>
+            <input type="Artist" name="artist" id="artist" placeholder="Artist">
+            <input type="submit" value="Query" style="margin-top:10px;margin-bottom: 20px;">
+        </form>
+    </div>
+    <div class="query-table">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Year</th>
+                <th>Cover Image</th>
+                <th>Subscribe</th>
+            </tr>
+            {{queries}}
+        </table>
+
+    </div>
+</div>
+{% endblock %}
