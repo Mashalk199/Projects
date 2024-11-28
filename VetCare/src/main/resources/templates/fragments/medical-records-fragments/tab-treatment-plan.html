@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav th:fragment="tab-treatment-plan (pet)">
+        <h2>Current Treatment Plan</h2>
+        <span th:if="${pet.getTreatmentPlans() != null && pet.getTreatmentPlans().size() != 0}">
+            <p>Treatment plan details for <span th:text="${pet.getName()}"></span>:</p>
+            <p><span th:text="${pet.getCurrentTreatmentPlan().getDescription()}"></span></p>
+            <!--DOSAGE DETAILS MODAL-->
+            <span
+                th:insert="~{fragments/medical-records-fragments/button-dosage-details.html ::button-dosage-details(${pet})}">
+            </span>
+        </span>
+        <span th:unless="${pet.getTreatmentPlans() != null && pet.getTreatmentPlans().size() != 0}">
+            <p>No current treatment plan for <span th:text="${pet.getName()}"></span></p>
+        </span>
+    </nav>
+</body>
+
+</html>

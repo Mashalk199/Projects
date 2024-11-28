@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav th:fragment="database-table (table)">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th th:each="headers: ${table[0]}">
+                        <span th:text="${headers}"></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="rows: ${table.subList(1, table.size())}">
+                    <td th:each="data: ${rows}">
+                        <span th:text="${data}"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </nav>
+</body>
+
+</html>

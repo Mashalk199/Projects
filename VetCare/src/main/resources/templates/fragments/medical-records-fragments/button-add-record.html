@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav th:fragment="button-add-record (petId)">
+        <br>
+        <button type="button" class="btn btn-success btn-md float-end col-sm" th:data-bs-toggle="'modal'"
+            th:data-bs-target="'#addNewRecordModalCenter' + ${petId}">Add New Record
+        </button>
+
+        <!--ADD NEW RECORD MODAL-->
+        <div class="modal fade" th:id="'addNewRecordModalCenter' + ${petId}" tabindex="-1" role="dialog"
+            aria-labelledby="'addNewRecordModalCenterTitle' + + ${petId}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" th:id="'addNewRecordModalLongTitle' + ${petId}">Enter New Record
+                            Information</h5>
+                    </div>
+                    <!--ADD NEW RECORD FORM-->
+                    <form th:action="@{/records/create/record}" th:object="${record}" th:method="post"
+                        class="needs-validation">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="inputClinicId" class="form-label">Clinic*</label>
+                                <select class="form-select" th:id="inputClinicId" field="*{clinic_id}" name="clinicId"
+                                    required>
+                                    <option selected hidden disabled value="">Select Clinic</option>
+                                    <div th:each="clinic: ${clinics}">
+                                        <option th:value="${clinic.getClinicId()}"><span
+                                                th:text="${clinic.getClinicName()}"></span></option>
+                                    </div>
+                                </select>
+                            </div>
+                            <div>
+                                <input type="hidden" class="form-control" th:id="inputPetId" field="*{pet_id}"
+                                    name="petId" th:value="${petId}">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDate" class="form-label">Date*</label>
+                                <input type="date" class="form-control" th:id="inputDate" field="*{date}" name="date"
+                                    placeholder="Enter Date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDescription" class="form-label">Description*</label>
+                                <input type="text" class="form-control" th:id="inputDescription" field="*{description}"
+                                    name="description" placeholder="Enter Description">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPrescription" class="form-label">Medicine (Optional)</label>
+                                <select class="form-select" th:id="inputPrescription" field="*{prescription_id}" name="prescriptionId">
+                                    <option selected hidden disabled value="">Select Medicine (Optional)</option>
+                                    <option th:value="${null}"><span
+                                                th:text="${'None'}"></span></option>
+                                    <div th:each="prescription: ${allPrescriptions}">
+                                        <option th:value="${prescription.getId()}"><span
+                                                th:text="${prescription.getMedicineName()}"></span></option>
+                                    </div>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDiagnosis" class="form-label">Diagnosis*</label>
+                                <input type="text" class="form-control" th:id="inputDiagnosis" field="*{diagnosis}"
+                                    name="diagnosis" placeholder="Enter Diagnosis" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputTreatment" class="form-label">Treatment (Optional)</label>
+                                <input type="text" class="form-control" th:id="inputTreatment" field="*{treatment}"
+                                    name="treatment" placeholder="Enter Treatment (Optional)">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" th:data-bs-dismiss="'modal'">Close</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

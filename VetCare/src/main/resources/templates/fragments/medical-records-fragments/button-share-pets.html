@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav th:fragment="button-share-pets (petEntitys)">
+        <br>
+        <button type="button" class="btn btn-primary btn-sm" th:data-bs-toggle="'modal'"
+            th:data-bs-target="'#sharePetsModalCenter'">Share Pet Records
+        </button>
+
+        <!--ADD NEW PET MODAL-->
+        <div class="modal fade" th:id="'sharePetsModalCenter'" tabindex="-1" role="dialog"
+            aria-labelledby="sharePetsModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" th:id="'sharePetsModalLongTitle'">Select Vet to Share Pet Records</h5>
+                    </div>
+                    <!--ADD NEW PET FORM-->
+                    <form th:action="@{/records/share}" th:object="${vet}" th:method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="inputVetId" class="form-label"> Select Vet</label>
+                                <select class="form-select" th:id="inputVetId" field="*{vet_id}" name="vetId"
+                                    required>
+                                    <option selected hidden disabled value="">Select Veterinarian</option>
+                                    <div th:each="vet: ${vets}">
+                                        <option th:value="${vet.getVetId()}"><span
+                                                th:text="${vet.getFirstName() + ' ' + vet.getLastName()}"></span></option>
+                                    </div>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" th:data-bs-dismiss="'modal'">Close</button>
+                            <button type="submit" class="btn btn-success">Share</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>

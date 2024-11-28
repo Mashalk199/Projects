@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>PetSideBar</title>
+</head>
+
+<body>
+  <div th:fragment="petsidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 400px;">
+
+    <div class="d-flex align-items-start px-5 py-3">
+      <div class="nav flex-column nav-pills me-5 flex-shrink-0" id="v-pills-tab" role="tablist"
+        aria-orientation="vertical">
+        <button class="nav-link active" id="v-pills-pet1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pet1"
+          type="button" role="tab" aria-controls="v-pills-pet1" aria-selected="true">Pet 1</button>
+        <button class="nav-link" id="v-pills-pet2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pet2"
+          type="button" role="tab" aria-controls="v-pills-pet2" aria-selected="false">Pet 2</button>
+        <button class="nav-link" id="v-pills-pet3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pet3"
+          type="button" role="tab" aria-controls="v-pills-pet3" aria-selected="false">Pet 3</button>
+      </div>
+
+      <div class="tab-content px-5" id="v-pills-tabContent">
+
+        <div class="tab-pane fade show active" id="v-pills-pet1" role="tabpanel" aria-labelledby="v-pills-pet1-tab">
+          <div th:insert="~{fragments/petdata.html :: petdata (1)}"> </div>
+        </div>
+
+        <div class="tab-pane fade" id="v-pills-pet2" role="tabpanel" aria-labelledby="v-pills-pet2-tab">
+          <div th:insert="~{fragments/petdata.html :: petdata (2)}"> </div>
+        </div>
+
+        <div class="tab-pane fade" id="v-pills-pet3" role="tabpanel" aria-labelledby="v-pills-pet3-tab">
+          <div th:insert="~{fragments/petdata.html :: petdata (3)}"> </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

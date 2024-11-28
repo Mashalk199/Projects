@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+
+    <title>Sign In</title>
+    <!-- <script src="content-script.js"></script> -->
+    <style>
+        #centered-card {
+            width: 45%;
+            height: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="centered-card" layout:fragment="content">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Sign In</h5>
+                <span id="errorMessage" class="text-danger" th:text="${errorMessage}">Error</span>
+                <form method="post" style="margin-bottom:10px">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" id="username" name="username" aria-describedby="usernameHelp"
+                            placeholder="Enter username">
+                        <!-- <small id="usernameHelp" class="form-text text-muted">TODO: insert username criteria
+                            here.</small> -->
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <p><a href="/reset-password">Forgot your password?</a></p>
+                Don't have an account? <a href="/sign-up">Click here to sign up</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

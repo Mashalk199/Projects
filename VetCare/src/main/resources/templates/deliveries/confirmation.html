@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+
+<head>
+    <title>Delivery Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .order-summary {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .order-summary h3 {
+            color: #4CAF50;
+        }
+
+        .order-summary p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .message-box {
+            background-color: #e7f7e7;
+            color: #2d862d;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .message-box.error {
+            background-color: #f8d7da;
+            color: #a94442;
+            border-color: #d9534f;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            border: 1px solid #4CAF50;
+            padding: 10px 15px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .back-link a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <h1 class="mt-4 text-center">Delivery Request Summary</h1>
+
+        <!-- Message Box (Success/Error) -->
+        <div th:if="${message}" th:class="'message-box' + (${error} ? ' error' : '')">
+            <p th:text="${message}"></p>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>Your Delivery Details</h3>
+            <p><b>Prescription:</b> <span th:text="${prescriptionName}"></span></p>
+            <p><b>Delivery Address:</b> <span th:text="${deliveryAddress}"></span></p>
+            <p><b>Estimated Delivery Time:</b> <span th:text="${estimatedDeliveryTime}"></span></p>
+            <p><i>An email will be sent shortly for tracking purposes.</i></p>
+        </div>
+
+        <!-- Back to Previous Page Link, goes to /prescriptions if error-->
+        <div class="back-link">
+            <a th:href="${previousPage != null ? previousPage : '/prescriptions'}">Back to Previous Page</a>
+        </div>
+    </div>
+</body>
+
+</html>

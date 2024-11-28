@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}" lang="en">
+
+<head>
+
+    <title>Appointment</title>
+    <style>
+        .next {
+            width: 100px;
+            height: 50px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .custom-select {
+            width: auto;
+        }
+        
+        #description {
+            width: 800px;
+        }
+        /* Style for hover effect */
+        
+        .container-sm:hover {
+            background-color: black;
+            color: white;
+        }
+        /* Limit width of the date picker */
+        
+        #date {
+            max-width: 200px;
+        }
+        /* Ensure the date label is displayed on one line */
+        
+        label {
+            display: inline-block;
+        }
+        
+        .next {
+            width: 200px;
+            height: 60px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+
+    <script th:inline="javascript">
+        function updateVets() {
+            // Get the selected clinic from the dropdown
+            const selectedClinicId = document.querySelector('#clinic-select').value;
+            console.log("selectedClinicId", selectedClinicId);
+
+            // Hide all vet containers
+            document.querySelectorAll('.vet-container').forEach(function(container) {
+                container.style.display = 'none';
+            });
+
+            // Uncheck all vets before displaying the ones for the selected clinic
+            document.querySelectorAll('input[name="vet_id"]').forEach(function(vet) {
+                vet.checked = false;
+            });
+
+            // Show vets for the selected clinic
+            const selectedVetContainers = document.querySelectorAll(`.vet-container[data-clinic-id="${selectedClinicId}"]`);
+            selectedVetContainers.forEach(function(container) {
+                container.style.display = 'block';
+            });
+
+            // Makes the first vet in the newly displayed list selected
+            const firstVetRadio = selectedVetContainers[0].querySelector('input[name="vet_id"]');
+            if (firstVetRadio) {
+                firstVetRadio.checked = true;
+            }
+        }
+
+
+
+        // Add event listener to clinic dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const clinicSelect = document.querySelector('#clinic-select');
+            clinicSelect.addEventListener('change', updateVets);
+
+            // Initialize by showing vets for the initially selected clinic
+            updateVets();
+        });
+        // Method to select the radio button when the box is clicked
+        function selectVet(vetId) {
+            document.getElementById(vetId).checked = true;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = (today.getMonth() + 1).toString().padStart(2, '0')
+            var day = today.getDate().toString().padStart(2, '0');
+            var formattedToday = year + '-' + month + '-' + day;
+            document.getElementById('date').setAttribute('min', formattedToday);
+        });
+        // var bookedTimes = /*[[${bookedTimes}]]*/ [];
+        // console.log("Booked Times:", bookedTimes);
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var dateInput = document.getElementById('date');
+            var timeDropdown = document.getElementById('time');
+            var clinicSelect = document.getElementById('clinic-select');
+
+            // Ensure vetRadioButtons is dynamically retrieved after the vet list is updated
+            function getVetRadioButtons() {
+                return document.querySelectorAll('input[name="vet_id"]');
+            }
+
+            function getSelectedVet() {
+                let selectedVet = null;
+                getVetRadioButtons().forEach(function(vet) {
+                    if (vet.checked) {
+                        selectedVet = vet.value;
+                    }
+                });
+                return selectedVet;
+            }
+
+            // Function to fetch available times based on selected date, clinic, and vet
+            function fetchAvailableTimes(selectedDate) {
+                let clinic = clinicSelect.value; // Get the selected clinic
+                let vet = getSelectedVet(); // Get the selected vet
+                console.log("Selected clinic:", clinic, "Selected vet:", vet);
+                if (selectedDate && clinic && vet) {
+                    // Make an AJAX request to the server to get the available times for the selected date and clinic
+                    fetch(`/bookAppointment/available-times?date=${selectedDate}&clinic=${clinic}&vet=${vet}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Clear the existing options in the dropdown
+                            timeDropdown.innerHTML = '';
+
+                            // Adds default option
+                            var defaultOption = document.createElement('option');
+                            defaultOption.text = 'Select a time';
+                            defaultOption.value = ''; // Empty value for default option
+                            timeDropdown.appendChild(defaultOption);
+
+                            // Log available times for debugging purposes
+                            console.log("Available times data:", data);
+
+                            // Add the available times to the dropdown
+                            for (var i = 0; i < data.length; i++) {
+                                var option = document.createElement('option');
+                                option.text = data[i];
+                                option.value = data[i];
+                                timeDropdown.appendChild(option);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching available times:', error);
+                        });
+                }
+            }
+
+            // Fetch new times after any changes on the date input
+            dateInput.addEventListener('change', function() {
+                var selectedDate = dateInput.value;
+                fetchAvailableTimes(selectedDate);
+            });
+
+            // Add an event listener for each radio button 
+            clinicSelect.addEventListener('change', function() {
+                if (dateInput.value && getSelectedVet()) {
+                    console.log("Clinic changed");
+                    // Fetch new times when new clinic is selected
+                    fetchAvailableTimes(dateInput.value);
+                }
+            });
+
+            // Vet change listener
+            document.addEventListener('change', function(event) {
+                if (event.target.name === 'vet_id') {
+                    if (dateInput.value) {
+                        console.log("Vet changed");
+                        fetchAvailableTimes(dateInput.value);
+                    }
+                }
+            });
+
+            // Check if a date is already selected after a page reload
+            if (dateInput.value) {
+                fetchAvailableTimes(dateInput.value);
+            }
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <h1 style="font-size:40px;" class="mt-4">Reschedule appointment</h1>
+        <div th:if="${errorMessage != null}" class="alert alert-danger">
+            <p th:text="${errorMessage}"></p>
+        </div>
+        <form th:method="patch" action="/bookAppointment/rescheduleBooking">
+            <input type="hidden" name="appointment_id" th:value="${appointment_id}" />
+            <div class="container">
+                <div class="row">
+                    <!-- Select Booking Date -->
+                    <div class="col-sm d-flex justify-content-center align-items-center my-3">
+                        <label class="form-label mx-2" for="date">Booking Date:</label>
+                        <input type="date" id="date" name="bookingDate" class="form-control" required>
+                    </div>
+
+                    <!-- Select Pet -->
+                    <div class="col-sm d-flex justify-content-center align-items-center my-3">
+                        <label class="mx-2" for="pets">Pet:</label>
+                        <select class="form-select custom-select" name="pet_id" id="pet-select">
+                            <!-- Default option "No Pet" -->
+                            <option value="-1" selected>No Pet</option>
+                            <option th:each="name, stat : ${pets_names}" 
+                                    th:text="${name}" 
+                                    th:value="${pets_ids[stat.index]}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-7">
+                        <!-- Dynamically generated vet containers -->
+                        <div th:each="vetName, stat : ${vet_names}" class="vet-container" th:data-clinic-id="${vet_clinics[stat.index]}" style="display:none;">
+                            <label class="container-sm mt-3 border" th:for="'vet' + ${vet_ids[stat.index]}">
+                                <input type="radio" th:id="'vet' + ${vet_ids[stat.index]}" name="vet_id" th:value="${vet_ids[stat.index]}" />
+                                <h3 th:text="${vetName}"></h3>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <!-- Select desired clinic -->
+                    <div class="col-sm d-flex justify-content-center align-items-center my-3">
+                        <label class="mx-2" for="clinics">Clinic:</label>
+                        <select class="form-select custom-select" name="clinic_id" id="clinic-select">
+                            <option th:each="name, stat : ${clinics_names}" 
+                                    th:text="|${name} $${clinics_prices[stat.index]}/hour|" 
+                                    th:value="${clinics_ids[stat.index]}">
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="row">
+                <!-- Select Booking Time -->
+                <div class="col-sm d-flex justify-content-center align-items-center my-3">
+                    <label class="mx-2" for="time">Booking Time:</label>
+                    <select class="form-select custom-select" name="dropdownTimeOption" id="time">
+                        <option value="" selected>Select a time</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm d-flex justify-content-center align-items-end my-5">
+                    <button type="submit" class="btn btn-primary next">Confirm Rescheduling</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

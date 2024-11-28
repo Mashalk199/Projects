@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav th:fragment="button-download-record (petId)">
+        <form th:action="@{'/records/openpdf/export/' + ${petId}}" th:method="get" >
+            <button type="submit"
+                class="btn btn-primary float-end">Download Records
+            </button>
+        </form>
+    </nav>
+</body>
+
+</html>

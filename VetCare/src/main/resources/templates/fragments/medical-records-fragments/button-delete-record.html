@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+
+  <style>
+    .modal-content {
+        max-width: 600px; /* Adjust based on your design */
+        width: 100%; /* Ensure it fills the container */
+    }
+
+    .modal-body {
+        overflow-wrap: break-word; /* Allows long words to break */
+        max-height: 400px; /* Optional: Set a max height */
+        overflow-y: auto; /* Allow vertical scrolling if content exceeds */
+    }
+
+    table {
+        width: 100%; /* Make the table responsive */
+        table-layout: fixed; /* Prevent overflow */
+    }
+
+    th, td {
+        word-wrap: break-word; /* Allow text to wrap within cells */
+    }
+</style>
+</head>
+
+<body>
+  <nav th:fragment="button-delete-record (record)">
+    <form th:action="@{'/records/delete/record/' + ${record.getRecordId()}}" th:method="delete">
+      <button type="button" class="btn btn-danger btn-sm" th:data-bs-toggle="modal"
+        th:data-bs-target="'#deleteRecordModalCenter' + ${record.getRecordId()}">
+        Delete
+      </button>
+      <div class="modal fade" th:id="'deleteRecordModalCenter' + ${record.getRecordId()}" tabindex="-1" role="dialog"
+        aria-labelledby="'deleteRecordModalCenterTitle' + ${record.getRecordId()}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" th:id="'deleteRecordModalLongTitle' + ${record.getRecordId()}">Delete Record</h5>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete the following record?
+              <div class="table-responsive"> <!-- Added Bootstrap table-responsive class -->
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>Record ID</th>
+                      <th>Pet ID</th>
+                      <th>Date</th>
+                      <th>Diagnosis</th>
+                      <th>Treatment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td th:text="${record.getRecordId()}"></td>
+                      <td th:text="${record.getPetId()}"></td>
+                      <td th:text="${record.getDate()}"></td>
+                      <td th:text="${record.getDiagnosis()}"></td>
+                      <td th:text="${record.getTreatment()}"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="reset" class="btn btn-secondary" th:data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-danger">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </nav>
+</body>
+
+</html>

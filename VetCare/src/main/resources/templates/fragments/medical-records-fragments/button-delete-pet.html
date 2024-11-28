@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <nav th:fragment="button-delete-pet (pet)">
+    <form th:action="@{'/records/delete/pet/' + ${pet.getPetId()}}" th:method="delete">
+      <button type="button" class="btn btn-danger me-1" th:data-bs-toggle="modal"
+        th:data-bs-target="'#deletePetModalCenter' + ${pet.getPetId()}">
+        Delete
+      </button>
+      <div class="modal fade" th:id="'deletePetModalCenter' + ${pet.getPetId()}" tabindex="-1" role="dialog"
+        aria-labelledby="'deletePetModalCenterTitle' + ${pet.getPetId()}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" th:id="'deletePetModalLongTitle' + ${pet.getPetId()}">Delete <span
+                  th:text="${pet.getName()}"></span></h5>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete <span th:text="${pet.getName()}"></span>?
+            </div>
+            <div class="modal-footer">
+              <button type="reset" class="btn btn-secondary" th:data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-danger" th:data-bs-dismiss="modal">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </nav>
+</body>
+
+</html>

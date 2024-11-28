@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav th:fragment="tab-vaccinations (pet)">
+        <table class="table">
+            <thead class="thead-dark">
+                <div class="row">
+                    <div class="col-6"><h2>Vaccinations</h2></div>
+                </div>
+                <tr>
+                    <th>Vaccination Name</th>
+                    <th>Date Administered</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="vaccination: ${pet.getVaccinations()}">
+                    <td th:text="${vaccination.getVaccinationName()}"></td>
+                    <td th:text="${vaccination.getDate()}"></td>
+                    <td th:text="${vaccination.getDescription()}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </nav>
+</body>
+
+</html>

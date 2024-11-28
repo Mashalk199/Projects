@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">  
+</head>
+
+<body>
+    <nav th:fragment="button-upload-file (record)">
+        <button type="button" class="btn btn-secondary btn-sm" th:data-bs-toggle="'modal'"
+            th:data-bs-target="'#uploadRecordModalCenter' + ${record.getRecordId}">Upload/View Files
+        </button>
+        <!--UPLOAD FILE MODAL-->
+        <div class="modal fade" th:id="'uploadRecordModalCenter'+ ${record.getRecordId}" tabindex="-1" role="dialog"
+            aria-labelledby="'uploadRecordModalCenterTitle'+ ${record.getRecordId}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" th:id="'uploadRecordModalLongTitle' + ${record.getRecordId}">Upload/View Files</h5>
+                    </div>
+                    <!--UPLOAD FILE FORM-->
+                        <div class="modal-body">
+
+                            <!--CURRENTLY UPLOADED FILES FOR RECORD-->
+                            <div th:unless="${recordFilesMap[record.getPetId()] == null or !recordFilesMap[record.getPetId()].containsKey(record.getRecordId()) or 
+                                #lists.isEmpty(recordFilesMap[record.getPetId()][record.getRecordId()])}">
+                            <strong>Currently Uploaded Files:</strong>
+                            <ul>
+                                <li th:each="file : ${recordFilesMap[record.getPetId()][record.getRecordId()]}" class="list-group-item mt-1">
+                                    <a th:href="@{/records/files/download(id=${record.getRecordId()}, filename=${file})}" th:text="${file}"></a>
+                                    <form th:action="@{'/records/delete/file/' + ${record.getRecordId()}}" method="post" style="display: inline;">
+                                        <input type="hidden" name="filename" th:value="${file}" />
+                                        <button type="submit" class="btn btn-danger btn-sm ">Delete</button>
+                                    </form>
+                                </li>
+                            </ul>
+                            </div> 
+                              
+                            <div th:if="${recordFilesMap[record.getPetId()] == null or 
+                                !recordFilesMap[record.getPetId()].containsKey(record.getRecordId()) or 
+                                #lists.isEmpty(recordFilesMap[record.getPetId()][record.getRecordId()])}">
+                                <p>No files available for this record.</p>
+                            </div>
+                        <form th:action="@{'/records/upload/file/' + ${record.getRecordId}}" th:method="post" enctype="multipart/form-data">    
+                            
+                            <input type="file" name="file">
+                        </div> 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" th:data-bs-dismiss="'modal'">Close</button>
+                            <button type="submit" class="btn btn-success">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

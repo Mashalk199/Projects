@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav th:fragment="button-dosage-details (pet)">
+        <button type="button" class="btn btn-secondary" th:data-bs-toggle="modal"
+            th:data-bs-target="'#viewDosageDetailsCenter' + ${pet.getPetId()}">
+            View Dosage Details
+        </button>
+        <div class="modal fade" th:id="'viewDosageDetailsCenter' + ${pet.getPetId()}" tabindex="-1" role="dialog"
+            aria-labelledby="'viewDosageDetailsCenterTitle' + ${pet.getPetId()}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" th:id="'viewDosageDetailsLongTitle' + ${pet.getPetId()}">Dosage Details
+                            for <span th:text="${pet.getName()}"></span></h5>
+                    </div>
+                    <div class="modal-body">
+                        <div th:each="prescription: ${prescriptions}">
+                            <span th:if="${pet.getCurrentTreatmentPlan().getPrescriptionId() == prescription.getId()}">
+                                <p>Medicine: <span th:text="${prescription.getMedicineName()}"></span></p>
+                                <p>Dosage: <span th:text="${prescription.getDosage()}"></span></p>
+                                <p>Frequency: <span th:text="${prescription.getFrequency()}"></span></p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" th:data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

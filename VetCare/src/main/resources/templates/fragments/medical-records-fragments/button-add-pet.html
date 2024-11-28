@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav th:fragment="button-add-pet">
+        <br>
+        <button type="button" class="btn btn-success mr-1 btn-sm" th:data-bs-toggle="'modal'"
+            th:data-bs-target="'#addNewPetModalCenter'">Add New Pet
+        </button>
+
+        <!--ADD NEW PET MODAL-->
+        <div class="modal fade" th:id="'addNewPetModalCenter'" tabindex="-1" role="dialog"
+            aria-labelledby="addNewPetModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" th:id="'addNewPetModalLongTitle'">Enter New Pet Information</h5>
+                    </div>
+                    <!--ADD NEW PET FORM-->
+                    <form th:action="@{/records/create/pet}" th:object="${pet}" th:method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="inputName">Name</label>
+                                <input type="text" class="form-control" th:id="inputName" field="*{name}" name="name"
+                                    aria-describedby="nameHelp" placeholder="Enter name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputSpecies">Species</label>
+                                <input type="text" class="form-control" th:id="inputSpecies" field="*{species}"
+                                    name="species" placeholder="Enter Species" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputGender">Gender</label>
+                                <input type="text" class="form-control" th:id="inputGender" field="*{gender}"
+                                    name="gender" placeholder="Enter Gender" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAge">Age</label>
+                                <input type="number" class="form-control" th:id="inputAge" field="*{age}" name="age"
+                                    placeholder="Enter Age" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" th:data-bs-dismiss="'modal'">Close</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

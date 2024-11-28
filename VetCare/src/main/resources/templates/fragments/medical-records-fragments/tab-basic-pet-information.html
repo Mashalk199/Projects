@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <nav th:fragment="tab-basic-pet-information (pet)">
+    <!--BASIC INFORMATION BUTTON-->
+    <h2>Basic Information</h2>
+    <h5>Name: <span th:text="${pet.getName()}"></span> </h5>
+    <span th:if="${vetId}">
+      <h5>Owner: <span th:text="${pet.getOwnerName()}"></span> </h5>
+    </span>
+    <h5>Species: <span th:text="${pet.getSpecies()}"></span> </h5>
+    <h5>Gender: <span th:text="${pet.getGender()}"></span> </h5>
+    <h5>Age: <span th:text="${pet.getAge()}"></span> </h5>
+
+    <!-- Only show edit/delete pet buttons if user is a vet -->
+    <span th:if="${vetId}">
+      <div class="btn-group">
+        <!--EDIT BASIC INFORMATION BUTTON-->
+        <span th:insert="~{fragments/medical-records-fragments/button-edit-pet.html :: button-edit-pet (${pet})}"></span>
+        <!--DELETE PET BUTTON/MODAL-->
+        <span th:insert="~{fragments/medical-records-fragments/button-delete-pet.html :: button-delete-pet (${pet})}"></span>
+      </div>
+    </span>
+  </nav>
+</body>
+
+</html>

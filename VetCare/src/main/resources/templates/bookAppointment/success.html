@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="container p-5 my-5 border d-flex flex-column align-items-center justify-content-center">
+            <h1>Booking successfully confirmed!</h1>
+            <div class="d-flex justify-content-center align-items-end my-5">
+                <a href="/viewBookings" class="btn btn-primary next">Click here to view your bookings</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

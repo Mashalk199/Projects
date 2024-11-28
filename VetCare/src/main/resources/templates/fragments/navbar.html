@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NavigationBar</title>
+
+</head>
+
+<body>
+    <nav th:fragment="navbar" class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="/">VetCare</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item ms-4">
+                        <a class="nav-link text-white" href="/">Home</a>
+                    </li>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link text-white" href="/bookAppointment">Book an Appointment</a>
+                    </li>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link text-white" href="/viewBookings">View Bookings</a>
+                    </li>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link text-white" href="/records">View Medical Records</a>
+                    </li>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link text-white" href="/prescriptions">Manage Prescriptions</a>
+                    </li>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link text-white" href="/learn">Learn</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ms-4">
+                        <a class="nav-link text-white" th:if="${navbarUsername == null}" href="sign-in">Log In</a>
+                    </li>
+                    <li class="nav-item ms-4"></li>
+                    <a class="nav-link text-white" th:if="${navbarUsername == null}" href="sign-up">Sign Up</a>
+                    </li>
+                    <li class="nav-item ms-4"></li>
+                    <a class="nav-link text-white" th:if="${navbarUsername != null}" href="account-management"
+                        th:text="${navbarUsername}">USERNAME</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>
