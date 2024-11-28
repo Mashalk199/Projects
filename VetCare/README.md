@@ -1,24 +1,4 @@
-
-# RMIT COSC2299 SEPT Major Project
-
-# Group Information
-
-## Group-P5-02
-
-## Members
-* Mashal Ahmad Khan (s3906303)
-* Darian Gin (s3967454)
-* Matthew Dalangin (s3944263)
-* Ravikaran Singh (s3940606)
-* Owen Cashin (s4008352)
-* Sandro Mortimer (s4003020)
-
-## Records
-
-* Github repository: https://github.com/cosc2299-2024/team-project-group-p05-02.git
-* Github Project Board: https://github.com/orgs/cosc2299-2024/projects/12
-* Microsoft Teams Group: https://teams.microsoft.com/l/team/19%3AsC-3CPbbJcAnTT0Gj1ItbPVkDeosX47zixl3tuRkRSs1%40thread.tacv2/conversations?groupId=879815be-3b3a-47ca-9cec-76faf6cc41a2&tenantId=d1323671-cdbe-4417-b4d4-bdb24b51316b
-
+NOTE: The code here only reflects the parts I completed, not the finished product. My contributions were the appointment booking and view booking functionality, I am currently working on bringing the final codebase to completion before exhibiting it in this portfolio.
 See [Instructions](INSTRUCTIONS.md)
 
 ## VScode springboot quick run
