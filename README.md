@@ -31,7 +31,7 @@ used the best models to power a small-scale AI job listings application for clas
 
 4. **Indigenous People’s Outcomes website** | SQL, Javalin, JDBC, HTML, CSS, Git | Sept 2021 – Oct 2021
 
-• Created an RDBMS from Australian census data with a script and queried using JDBC to display data on
+• Created a relational database from Australian census data with a script and queried using JDBC to display data on
 frontend.
 
 • Performed comprehensive usability-testing for website features, user requirements analysis and user testing with
