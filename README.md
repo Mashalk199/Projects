@@ -4,7 +4,7 @@ Guide for my portfolio and personal projects:
 
 Github repo: https://github.com/Mashalk199/MALRecommenderSystem
 
-• Created a KNN with means implementation of a recommender system with raw numpy and pandas, without using any external ML libraries.
+• Created a KNN with means implementation of a recommender system with raw numpy and pandas, without using any external ML libraries. Implemented external libraries to benchmark model performance using the Surprise scikit-learn library algorithms. 
 
 • Created a pipeline to analyse the user anime list of a myanimelist.net account user, and generate recommendations for the user.
 
