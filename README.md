@@ -1,6 +1,6 @@
 Guide for my portfolio and personal projects:
 
-1. **Personal Project: MAL Recommender System using KNNWithMeans and SVD** | numpy, pandas | Nov 2024 - Now
+1. **Personal Project: MAL Recommender System using KNNWithMeans and SVD** | NumPy, pandas, Surprise | Nov 2024 - Now
 
 Github repo: https://github.com/Mashalk199/MALRecommenderSystem
 
