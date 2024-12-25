@@ -69,5 +69,3 @@ the CRCHistoPhenotypes dataset.
 
 • Improved training performance with hyperparameter tuning and model structural experimentation and
 analysis.
-
-• Conducted well-graded literature review on research papers achieving similar goals in CNN classification.
