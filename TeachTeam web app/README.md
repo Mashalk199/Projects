@@ -1,5 +1,3 @@
-# s3939303-s3906303-a1
-
 1. Install react 18 and latest npm version
 2. In the fsda folder, run the following commands in the terminal:
    - npm install next
