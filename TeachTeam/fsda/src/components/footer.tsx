@@ -9,7 +9,7 @@ export default function Footer() {
       color="white"
       textAlign="center"
     >
-      <h3>Website developed by Jay and Mashal</h3>
+      <h3>Website developed by Mashal</h3>
     </Box>
   );
 }
