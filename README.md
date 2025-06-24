@@ -12,7 +12,7 @@ Github repo: https://github.com/Mashalk199/MALRecommenderSystem
 
 2. **MIMIC-IV Dysglycemia Prediction** | Pytorch, Tensorflow, NumPy  | Mar 2025 – June 2025
 
-Project Introduction: https://youtu.be/p5WLVTqJOMo?si=fWFqYHI2URlAWGSN
+Project Presentation: https://youtu.be/p5WLVTqJOMo?si=fWFqYHI2URlAWGSN
 
 • Worked in a group of 5 to conduct a combined 50 research paper literature review to learn researched
 techniques and understand the problem to predict time-series glucose outcomes for ICU patients.
