@@ -49,19 +49,7 @@ frontend.
 • Performed comprehensive usability-testing for website features, user requirements analysis and user testing with
 scenarios.
 
-6. **SuperPrice** | Java, React, RESTful API, Docker, Spring Boot | Aug 2023 – Oct 2023
-
-In order to run the website, please extract Superprice.zip file and read the README.md file.
-
-• Developed a shopping full-stack web application in Java, SpringBoot, React, Docker and TypeScript. Utilizing a
-REST API with React as the frontend and a H2 backend.
-
-• Group effort of 5 people, implementing a Scrum methodology where I served as the Product Owner, setting and
-managing tasks on GitHub project scrum boards.
-
-• Performed comprehensive tests on HTML and rest API results following a test-driven-development framework.
-
-7. **Vending Machine** | C++, Makefile, Regex | Apr 2023 – May 2023
+6. **Vending Machine** | C++, Makefile, Regex | Apr 2023 – May 2023
 
 • Created a C++ program called Penelope’s Pastry Delights which acts as a vending machine. Purchases can be made and change is given based on the particular balance of coins
 contained in the vending machine. Treats can be added, deleted, edited, etc.
@@ -69,12 +57,12 @@ contained in the vending machine. Treats can be added, deleted, edited, etc.
 • Utilized principles of structured programming, so no break statements and no methods with multiple return
 statements. All memory is managed with correct practices and handled by appropriate object users.
 
-8. **AWS hosted music website** | Flask, AWS EC2, S3, API Gateway, Lambda, DynamoDB | Mar 2023 – Apr 2023
+7. **AWS hosted music website** | Flask, AWS EC2, S3, API Gateway, Lambda, DynamoDB | Mar 2023 – Apr 2023
 
 • Set up multiple Amazon web services and utilized serverless lambda functions to query data from database from
 an API endpoint trigger in the website.
 
-9. **Classifying Histopathology Cancer Cell Images** | TensorFlow, Keras, Scikit-Learn | Apr 2023 – May 2023
+8. **Classifying Histopathology Cancer Cell Images** | TensorFlow, Keras, Scikit-Learn | Apr 2023 – May 2023
 
 • Utilised various deep learning techniques along with convolutional neural network models to classify images in
 the CRCHistoPhenotypes dataset.
