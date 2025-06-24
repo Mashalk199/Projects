@@ -74,7 +74,7 @@ statements. All memory is managed with correct practices and handled by appropri
 • Set up multiple Amazon web services and utilized serverless lambda functions to query data from database from
 an API endpoint trigger in the website.
 
-9. **Classifying Histopathelogy Cancer Cell Images** | TensorFlow, Keras, Scikit-Learn | Apr 2023 – May 2023
+9. **Classifying Histopathology Cancer Cell Images** | TensorFlow, Keras, Scikit-Learn | Apr 2023 – May 2023
 
 • Utilised various deep learning techniques along with convolutional neural network models to classify images in
 the CRCHistoPhenotypes dataset.
