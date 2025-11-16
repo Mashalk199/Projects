@@ -1,4 +1,7 @@
 Guide for my portfolio and personal projects:
+1. **Personal Project: FireLab - Early retirement calculator** | SwiftUI, CoreML, SwiftData, Firebase, UIKit
+
+GitHub repo: https://github.com/Mashalk199/FireLab
 
 1. **Personal Project: MAL Recommender System using KNNWithMeans and SVD** | NumPy, pandas, Surprise | Nov 2024 - Now
 
