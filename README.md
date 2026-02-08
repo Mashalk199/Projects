@@ -57,17 +57,9 @@ GitHub repo: https://github.com/Mashalk199/FireLab
 
 
 
-2. **Personal Project: MAL Recommender System using KNNWithMeans and SVD** | NumPy, pandas, Surprise | Nov 2024 - Now
 
-Github repo: https://github.com/Mashalk199/MALRecommenderSystem
 
-• Created a KNN with means implementation of a recommender system with raw numpy and pandas, without using any external ML libraries. Implemented separate recommender system with external libraries to benchmark model performance using the Surprise scikit-learn library. 
-
-• Created a pipeline to analyse the user anime list of a myanimelist.net account user, and generate recommendations for the user.
-
-• Working on implementing the SVD algorithm to the dataset to improve recommendation performance.
-
-3. **MIMIC-IV Dysglycemia Prediction** | Pytorch, Tensorflow, NumPy  | Mar 2025 – June 2025
+2. **MIMIC-IV Dysglycemia Prediction** | Pytorch, Tensorflow, NumPy  | Mar 2025 – June 2025
 
 Project Presentation: https://youtu.be/p5WLVTqJOMo?si=fWFqYHI2URlAWGSN
 
@@ -79,6 +71,19 @@ SVR, XGBoost ensemble trees for continuous and classification regression.
 
 • Achieved results competitive with established literature on predicting dysglycemia, improving on some
 literature model’s error scores by 13%.
+
+
+3. **Personal Project: MAL Recommender System using KNNWithMeans and SVD** | NumPy, pandas, Surprise | Nov 2024 - Now
+
+Github repo: https://github.com/Mashalk199/MALRecommenderSystem
+
+• Created a KNN with means implementation of a recommender system with raw numpy and pandas, without using any external ML libraries. Implemented separate recommender system with external libraries to benchmark model performance using the Surprise scikit-learn library. 
+
+• Created a pipeline to analyse the user anime list of a myanimelist.net account user, and generate recommendations for the user.
+
+• Working on implementing the SVD algorithm to the dataset to improve recommendation performance.
+
+
 
 4. **VetCare** | Java, Thymeleaf, Spring Boot, Bootstrap, Docker, MySQL, AWS, Mockito | Aug 2023 – Oct 2023
 
